@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Problem with Async and solutions following up in different files :D</h1>
+    <script>
+        const btn = document.querySelector("button")
+
+btn.addEventListener('click', () =>{
+                     alert("clicked")
+                      for(let i=0; i<100000; i++){
+                        console.log("something")
+                      }
+                      let p = document.createElement('p')
+                      p.textContent = "Hello I am added with DOM"
+                      document.body.appendChild(p)
+                     })
+// The above example shows problem with the sync javascript. It blocks the code until it finishes the code that is currently in process by the main thread as Javascript is a single threaded language
+// To solve this problem we can use web workers or most modern we can use Async JS
+
+// Async code allows the program to run immediately without blocking any other code that is being executed currently by the main thread.
+
+//  So functions running in parallel with other functions are called Async.
+
+// A typical example will be serTimeout
+
+setTimeout(fu, 3000);
+
+function fu(){
+  console.log("I am late three seconds")
+}
+
+console.log ("I am early")
+    </script>
+</body>
+</html>
