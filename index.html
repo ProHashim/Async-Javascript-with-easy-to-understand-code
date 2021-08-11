@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Promise</h2>
+
+<p id="demo"></p>
+
+<script>
+	
+    //Promise example one
+    let p = new Promise((resolve, reject) =>{
+    let a = 1 + 1
+    if(a==2){
+    resolve("Resolved")
+    }
+    else{
+    	reject("rejected")
+    }
+    })
+    
+    p.then((message)=>{
+    
+    	console.log(`I am cool and I am ${message}`)
+    }).catch((message) =>{
+    	console.log("I am an error")
+    })
+    
+    //Another Example for promises for using Promise.all()
+    const turnOne = new Promise((resolve, reject)=>{
+    	resolve(`<br> Something cool on turn 1`)
+    })
+    
+    const turnTwo = new Promise((resolve, reject)=>{
+    	resolve(`<br>Something cool cool on turn 2`)
+    })
+    
+    const turnThree = new Promise((resolve, reject)=>{
+    	resolve(`<br>Something cool cool on turn 3`)
+    })
+    
+    Promise.all([
+    turnOne,
+    turnTwo,
+    turnThree
+    ]).then((messages)=>{
+    console.log(messages)
+    })
+    
+    //Use Promise.race to run one method as soon as it is finished running
+    
+    
+</script>
+
+</body>
+</html>
